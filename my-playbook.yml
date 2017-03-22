@@ -14,3 +14,8 @@
       repo: https://github.com/ifriedman/ciscocd.git
       dest: ~/ciscocd
       clone: yes
+  - name: download maven and unarchive
+    unarchive:
+      src: http://apache.spd.co.il/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+      dest: ~/maven
+      remote_src: True
