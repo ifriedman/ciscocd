@@ -17,5 +17,6 @@
   - name: download maven and unarchive
     unarchive:
       src: http://apache.spd.co.il/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+      creates: yes
       dest: ~/maven
       remote_src: True
