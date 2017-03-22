@@ -13,6 +13,7 @@
     git:
       repo: https://github.com/ifriedman/ciscocd.git
       dest: ~/ciscocd
+      update: no
       clone: yes
   - name: download maven and unarchive
     unarchive:
