@@ -15,9 +15,22 @@
       dest: ~/ciscocd
       update: no
       clone: yes
-  - name: download maven and unarchive
-    unarchive:
-      src: http://apache.spd.co.il/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-      creates: yes
-      dest: ~/maven
-      remote_src: True
+#  - name: download maven and unarchive
+#    unarchive:
+#      src: http://apache.spd.co.il/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+#      creates: yes
+#      dest: ~/maven
+#      remote_src: True
+  - name: install docker
+    yum: name=docker state=latest
+    become: yes
+    become_method: sudo
+  - name: add group docker to ec2-user
+    user: name=ec2-user groups=docker append=yes
+    become: yes
+    become_method: sudo
+  - name: start docker
+    service: name=docker state=started
+    become: yes
+    become_method: sudo
+ 
